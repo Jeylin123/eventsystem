@@ -11,6 +11,7 @@ class cCalendar extends CI_Controller {
                               	$("#cal").addClass("active");
                               });
                         </script>';
+		
 		$this->load->view('imports/vHeader');
 		$this->load->view('calendar/vCalendar.php');
 		$this->load->view('imports/vFooter',$this->data);
