@@ -27,7 +27,10 @@
 	<script  src="<?php echo base_url(); ?>assets/js/moment.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.5.1/fullcalendar.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.5.1/fullcalendar.js"></script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> c5bb28e71aac7e51fd034941efe2ddbe0bbb40dd
     
          
    </head>
