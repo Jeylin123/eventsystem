@@ -10,6 +10,11 @@ class cCalendar extends CI_Controller {
 	
 	public function index()
 	{
+		$this->displayCalendar();
+	}
+	
+	public function displayCalendar()
+	{
 		$this->data['custom_js']= '<script type="text/javascript">
                               $(function(){
                               	$("#cal").addClass("active");
@@ -18,7 +23,7 @@ class cCalendar extends CI_Controller {
 		$data['event_data'] = $this->MCalendar->getAllEvents();
 		$this->load->helper('url');
 		$this->load->view('imports/vHeader');
-		$this->load->view('calendar/vCalendar.php',$data);
+		$this->load->view('calendar/vCalendar',$data);
 		$this->load->view('imports/vFooter',$this->data);
 	}
 	
@@ -52,6 +57,33 @@ class cCalendar extends CI_Controller {
 			
 			$this->MCalendar->insert($data);
 			
+			redirect($_SERVER['HTTP_REFERER']);
+			
+		}
+	}
+
+	public function ajaxUpdate()
+	{
+		if (isset($_POST['Event'][0]) && isset($_POST['Event'][1]) && isset($_POST['Event'][2])){
+	
+			$id = $_POST['Event'][0];
+			$start = $_POST['Event'][1];
+			$end = $_POST['Event'][2];
+			
+			$data = array(
+				'event_date_start'=>$start,
+				'event_date_end'=>$end,
+			);
+			
+			if($this->MCalendar->update($id,$data)){
+				echo "OK";
+			}else{
+				echo "Error";
+			}
+			
+			
+			
+			// $sql = "UPDATE register_event SET  petition_date_start = '".$start."', petition_date_end = '".$end."' WHERE petition_id = ".$id." ";
 		}
 	}
 }

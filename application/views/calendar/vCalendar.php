@@ -311,13 +311,11 @@
 			
 
 			$.ajax({
-			 url: 'editEventDate.php',
+			 url: '<?php echo site_url()?>/calendar/cCalendar/ajaxUpdate',
 			 type: "POST",
 			 data: {Event:Event},
 			 success: function(rep) {
-					if(rep != 'OK'){
-						alert(rep);
-					}
+					
 				}
 			});
 		}
