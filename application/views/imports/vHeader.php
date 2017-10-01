@@ -32,19 +32,9 @@
 	<link href="<?php echo base_url();?>assets/css/fullcalendar.css" rel="stylesheet" />
 =======
 	<script  src="<?php echo base_url(); ?>assets/js/moment.min.js"></script>
-<<<<<<< HEAD
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.5.1/fullcalendar.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.5.1/fullcalendar.js"></script>
 >>>>>>> calendar_module
-=======
-	<script  src="<?php echo base_url(); ?>assets/js/fullcalendar.js"></script>
-	
-	<!-- Bootstrap Core CSS -->
-    
-	
-	<!-- FullCalendar -->
-	<link href="<?php echo base_url();?>assets/css/fullcalendar.css" rel="stylesheet" />
->>>>>>> parent of c5bb28e... Fixed by adding js and css from internet links
     
          
    </head>
