@@ -22,8 +22,7 @@
 <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
 	
 	<!-- FullCalendar -->
-	<script  src="<?php echo base_url(); ?>assets/js/moment.min.js"></script>
-	<script  src="<?php echo base_url(); ?>assets/js/fullcalendar.js"></script>
+<script type = 'text/javascript' src = "<?php echo base_url();?>assets/js/fullcalendar.js"></script>
 	
 	<!-- Bootstrap Core CSS -->
     

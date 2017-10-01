@@ -10,11 +10,6 @@ class cCalendar extends CI_Controller {
 	
 	public function index()
 	{
-		$this->displayCalendar();
-	}
-	
-	public function displayCalendar()
-	{
 		$this->data['custom_js']= '<script type="text/javascript">
                               $(function(){
                               	$("#cal").addClass("active");
@@ -23,7 +18,7 @@ class cCalendar extends CI_Controller {
 		$data['event_data'] = $this->MCalendar->getAllEvents();
 		$this->load->helper('url');
 		$this->load->view('imports/vHeader');
-		$this->load->view('calendar/vCalendar',$data);
+		$this->load->view('calendar/vCalendar.php',$data);
 		$this->load->view('imports/vFooter',$this->data);
 	}
 	
@@ -55,6 +50,7 @@ class cCalendar extends CI_Controller {
 				'user_id'=>3
 			);
 			$this->MCalendar->insert($data);
+<<<<<<< HEAD
 			redirect($_SERVER['HTTP_REFERER']);
 		}
 	}
@@ -282,6 +278,9 @@ class cCalendar extends CI_Controller {
 			echo "OK";
 		}else{
 			echo "Error";
+=======
+			
+>>>>>>> parent of 7338c60... Added ajaxUpdate on drag&drop
 		}
 		
 		redirect($_SERVER['HTTP_REFERER']);

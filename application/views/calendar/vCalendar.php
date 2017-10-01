@@ -299,10 +299,16 @@
 			Event[1] = start;
 			Event[2] = end;
 			$.ajax({
-			 url: '<?php echo site_url()?>/calendar/cCalendar/ajaxUpdate',
+			 url: 'editEventDate.php',
 			 type: "POST",
 			 data: {Event:Event},
 			 success: function(rep) {
+<<<<<<< HEAD
+=======
+					if(rep != 'OK'){
+						alert(rep);
+					}
+>>>>>>> parent of 7338c60... Added ajaxUpdate on drag&drop
 				}
 			});
 		}
