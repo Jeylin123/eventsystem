@@ -79,6 +79,7 @@ class cCalendar extends CI_Controller {
 			
 			
 <<<<<<< HEAD
+<<<<<<< HEAD
 			}
 		}
 
@@ -89,6 +90,9 @@ class cCalendar extends CI_Controller {
 
 			// $sql = "UPDATE register_event SET  petition_date_start = '".$start."', petition_date_end = '".$end."' WHERE petition_id = ".$id." ";
 
+=======
+			// $sql = "UPDATE register_event SET  petition_date_start = '".$start."', petition_date_end = '".$end."' WHERE petition_id = ".$id." ";
+>>>>>>> parent of 7f57d5a... Added update and delete function
 =======
 			// $sql = "UPDATE register_event SET  petition_date_start = '".$start."', petition_date_end = '".$end."' WHERE petition_id = ".$id." ";
 >>>>>>> parent of 7f57d5a... Added update and delete function

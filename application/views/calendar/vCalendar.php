@@ -318,11 +318,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 					if(rep != 'OK'){
 						alert(rep);
 					}
 >>>>>>> parent of 7338c60... Added ajaxUpdate on drag&drop
+=======
+					
+>>>>>>> parent of 7f57d5a... Added update and delete function
 =======
 					
 >>>>>>> parent of 7f57d5a... Added update and delete function
