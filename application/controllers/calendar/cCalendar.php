@@ -74,10 +74,13 @@ class cCalendar extends CI_Controller {
 			);
 			if($this->MCalendar->update($id,$data)){
 				echo "OK";
+				
 			}else{
 				echo "Error";
 			}			
 		}
+		redirect($_SERVER['HTTP_REFERER']);
+		
 	}
 	
 	public function displayEventUpdate()

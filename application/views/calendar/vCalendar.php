@@ -69,7 +69,6 @@
 							  <option style="color:#40E0D0;" value="#40E0D0">&#9724; Turquoise</option>
 							  <option style="color:#008000;" value="#008000">&#9724; Green</option>						  
 							  <option style="color:#FFD700;" value="#FFD700">&#9724; Yellow</option>
-							  <option style="color:#FF8C00;" value="#FF8C00">&#9724; Orange</option>
 							  <option style="color:#FF0000;" value="#FF0000">&#9724; Red</option>
 							  <option style="color:#000;" value="#000">&#9724; Black</option>
 							  
@@ -173,6 +172,16 @@
 			  
 			</div>
 			
+			<?php  
+			foreach($event_data as $data){
+				
+				
+				echo "<br>";
+			}
+			
+			// echo date("Ymd",strtotime("-12days",strtotime(20171022))); 
+			
+			?>
 	
 	    </div>
 	    <!-- /.container -->
@@ -276,13 +285,29 @@
 					}else{
 						$end = $events->event_date_end;
 					}
+					  // date_default_timezone_set('Singapore');
+					  $date_now = new DateTime();
+ 					  $date2    = new DateTime($end);
+					  $date3 = new DateTime($start);
 				?>
-				{
+				{	
 					id: '<?php echo $events->event_id; ?>',
 					title: '<?php echo $events->event_name; ?>',
 					start: '<?php echo $start; ?>',
 					end: '<?php echo $end; ?>',
-					color: '<?php echo $events->color;?>',
+					color: '<?php 			
+						if($date_now>$date2){
+							echo "#808080";
+						}else{
+							$difference = $date_now->diff($date3);
+							$difference = (int) $difference->d;
+							if($difference>5){
+								echo $events->color;
+							}else{
+								echo "#ffae00";
+							}	
+						}
+					?>',
 				},
 				<?php endforeach; ?>
 			]
