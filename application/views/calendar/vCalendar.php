@@ -1,7 +1,43 @@
+<head>
+	
+    
 
+	
+      
+    
+
+
+    <!-- Custom CSS -->
+    <style>
+    body {
+        padding-top: 70px;
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+	#calendar {
+		max-width: 800px;
+	}
+	.col-centered{
+		float: none;
+		margin: 0 auto;
+	}
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
           <div class="content">
           <!-- Page Content -->
-          Calendar Module
+          <!-- <?php 
+				if($event_data){
+					foreach ($event_data as $key) {
+						echo $key->event_name;
+					}
+				}
+			 ?> -->
     <div class="container">
 
         <div class="row">
@@ -18,7 +54,7 @@
 		<div class="modal fade" id="ModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
-			<form class="form-horizontal" method="POST" action="addEvent.php">
+			<form class="form-horizontal" method="POST" action="<?php echo site_url()?>/calendar/cCalendar/AddEvent">
 			
 			  <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -43,8 +79,8 @@
 				  <div class="form-group">
 					<label for="color" class="col-sm-2 control-label">Color</label>
 					<div class="col-sm-10">
-					  <select name="color" class="form-control" id="color">
-						  <option value="">Choose</option>
+					  <select name="color" class="form-control" id="color" title="Choose color">
+					  	
 						  <option style="color:#0071c5;" value="#0071c5">&#9724; Dark blue</option>
 						  <option style="color:#40E0D0;" value="#40E0D0">&#9724; Turquoise</option>
 						  <option style="color:#008000;" value="#008000">&#9724; Green</option>						  
@@ -160,11 +196,15 @@
 	
 
     
-	<script src='<?php echo base_url(); ?>js/moment.min.js'></script>
-	<script src='<?php echo base_url(); ?>js/fullcalendar.js'></script>
+   
 
+    
 
-<script>
+    
+
+   
+
+<script >
 
 	
 	$(document).ready(function() {
@@ -225,26 +265,26 @@
 
 			},
 			events: [
-				<?php foreach($event as $events): 
+				<?php foreach($event_data as $events): 
 				
-					$start = explode(" ", $events['petition_date_start']);
-					$end = explode(" ", $events['petition_date_end']);
+					$start = explode(" ", $events->event_date_start);
+					$end = explode(" ", $events->event_date_end);
 					if($start[1] == '00:00:00'){
 						$start = $start[0];
 					}else{
-						$start = $events['petition_date_start'];
+						$start = $events->event_date_start;
 					}
 					if($end[1] == '00:00:00'){
 						$end = $end[0];
 					}else{
-						$end = $events['petition_date_end'];
+						$end = $events->event_date_end;
 					}
 
 					//echo $event['start'];
 				?>
 				{
-					id: '<?php echo $events['petition_id']; ?>',
-					title: '<?php echo $events['petition_name']; ?>',
+					id: '<?php echo $events->event_id; ?>',
+					title: '<?php echo $events->event_name; ?>',
 					start: '<?php echo $start; ?>',
 					end: '<?php echo $end; ?>',
 					
