@@ -20,10 +20,11 @@
 			$this->DB_TABLE_PK = "event_id";
 		}
 		
-		public function getAllEvents(){
+		public function getAllApprovedEvents(){
 			//Sample code
 			//find read_all function at application/core/MY_Model.php
-			$query = $this->read_all();
+			$where = array('event_status'=>"Approved");
+			$query = $this->read_where($where);
 			return $query;			             
 		}
 		

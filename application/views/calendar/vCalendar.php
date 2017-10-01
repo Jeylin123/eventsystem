@@ -63,8 +63,8 @@
 					  <div class="form-group">
 						<label for="color" class="col-sm-2 control-label">Color</label>
 						<div class="col-sm-10">
-						  <select name="color" class="form-control" id="color" title="Choose color">
-						  	
+						  <select name="color" class="form-control" id="color">
+						  	  <option value="">Choose</option>
 							  <option style="color:#0071c5;" value="#0071c5">&#9724; Dark blue</option>
 							  <option style="color:#40E0D0;" value="#40E0D0">&#9724; Turquoise</option>
 							  <option style="color:#008000;" value="#008000">&#9724; Green</option>						  
@@ -282,6 +282,7 @@
 					title: '<?php echo $events->event_name; ?>',
 					start: '<?php echo $start; ?>',
 					end: '<?php echo $end; ?>',
+					color: '<?php echo $events->color;?>',
 				},
 				<?php endforeach; ?>
 			]

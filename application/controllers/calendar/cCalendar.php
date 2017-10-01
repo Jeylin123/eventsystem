@@ -20,7 +20,7 @@ class cCalendar extends CI_Controller {
                               	$("#cal").addClass("active");
                               });
                         </script>';
-		$data['event_data'] = $this->MCalendar->getAllEvents();
+		$data['event_data'] = $this->MCalendar->getAllApprovedEvents();
 		$this->load->helper('url');
 		$this->load->view('imports/vHeader');
 		$this->load->view('calendar/vCalendar',$data);
@@ -36,16 +36,18 @@ class cCalendar extends CI_Controller {
 			$event_detail = $_POST['event_detail'];
 			$start = $_POST['start'];
 			$end = $_POST['end'];
-			$event_category= ($_POST['event_category']==-1)?NULL:$_POST['event_category'];
+			$event_category= ($_POST['event_category']==-1)?"Other":$_POST['event_category'];
 			$event_venue= $_POST['event_venue'];
 			$event_ticket_price= $_POST['event_ticket_price'];
 			$event_ticket_type =$_POST['event_ticket_type'];
 			$event_ticket_total_no= $_POST['event_ticket_total_no'];
 			$event_ticket_discount= $_POST['event_ticket_discount'];
+			$color=$_POST['color'];
 			
 			$data = array(
 				'event_date_start'=>$start,
 				'event_date_end'=>$end,
+				'color'=>$color,
 				'no_tickets_total'=>$event_ticket_total_no,
 				'event_status'=>"Approved",
 				'event_name'=>$title,
@@ -89,7 +91,7 @@ class cCalendar extends CI_Controller {
 					$HTML='<div class="modal-dialog" role="document">
 						<div class="modal-content">
 						<form class="form-horizontal" method="POST" action="'.site_url().'/calendar/cCalendar/ajaxUpdateAndDelete">
-						  <div class="modal-header">
+						  <div class="modal-header" style="background-color:'.$row->color.';">
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							<h4 class="modal-title" id="myModalLabel">Edit Event</h4>
 						  </div>
