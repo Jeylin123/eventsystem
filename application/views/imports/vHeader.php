@@ -22,9 +22,25 @@
 <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
 	
 	<!-- FullCalendar -->
+
+
 	<script  src="<?php echo base_url(); ?>assets/js/moment.min.js"></script>
+<<<<<<< HEAD
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.5.1/fullcalendar.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.5.1/fullcalendar.js"></script>
+<<<<<<< HEAD
+
+=======
+>>>>>>> c5bb28e71aac7e51fd034941efe2ddbe0bbb40dd
+=======
+	<script  src="<?php echo base_url(); ?>assets/js/fullcalendar.js"></script>
+	
+	<!-- Bootstrap Core CSS -->
+    
+	
+	<!-- FullCalendar -->
+	<link href="<?php echo base_url();?>assets/css/fullcalendar.css" rel="stylesheet" />
+>>>>>>> parent of c5bb28e... Fixed by adding js and css from internet links
     
          
    </head>
