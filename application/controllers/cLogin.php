@@ -7,6 +7,7 @@ class CLogin extends CI_Controller {
 		parent::__construct();
 	 	$this->load->model('user/MUser');
 	}
+	
 
 	public function userLogin()
 	{	
@@ -21,10 +22,12 @@ class CLogin extends CI_Controller {
                               	$("#dash").addClass("active");
                               });
                         </script>';
+                        
 		$this->load->view('imports/vHeader');
 		$this->load->view('vSample',$data);		
 		$this->load->view('imports/vFooter',$this->data);
 	}
-
+	
+	Gwapo si Diez!
 }
 ?>
