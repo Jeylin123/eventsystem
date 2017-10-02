@@ -20,8 +20,6 @@
 		public function getAllUsers(){
 			//Sample code
 			//find read_all function at application/core/MY_Model.php
-			
-			
 			$query = $this->read_all();
 			return $query;			             
 		}
