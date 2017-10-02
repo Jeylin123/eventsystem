@@ -25,6 +25,6 @@ class CLogin extends CI_Controller {
 		$this->load->view('vSample',$data);		
 		$this->load->view('imports/vFooter',$this->data);
 	}
-
+	
 }
 ?>
