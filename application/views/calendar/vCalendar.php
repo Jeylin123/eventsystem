@@ -1,7 +1,29 @@
-<body>
+<head>
+    <!-- Custom CSS -->
+    <style>
+    body {
+        padding-top: 70px;
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+	#calendar {
+		max-width: 800px;
+	}
+	.col-centered{
+		float: none;
+		margin: 0 auto;
+	}
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
      <div class="content">  
 	    <div class="container">
-
+	
 	        <div class="row">
 	            <div class="col-lg-12 text-center">
 	                
@@ -269,7 +291,6 @@
 					  $date_now = new DateTime();
  					  $date2    = new DateTime($end);
 					  $date3 = new DateTime($start);
-					  $newColor;
 				?>
 				{	
 					id: '<?php echo $events->event_id; ?>',
@@ -278,14 +299,14 @@
 					end: '<?php echo $end; ?>',
 					color: '<?php 			
 						if($date_now>$date2){
-							echo $newColor = "#808080";
+							echo "#808080";
 						}else{
 							$difference = $date_now->diff($date3);
 							$difference = (int) $difference->d;
 							if($difference>5){
-								echo $newColor = $events->color;
+								echo $events->color;
 							}else{
-								echo $newColor = "#ffae00";
+								echo "#ffae00";
 							}	
 						}
 					?>',
@@ -310,10 +331,6 @@
 			 type: "POST",
 			 data: {Event:Event},
 			 success: function(rep) {
-
-
-			 		location.reload();
-
 				}
 			});
 		}
