@@ -204,12 +204,14 @@
 			header: {
 				left: 'prev,next today',
 				center: 'title',
-				right: 'month,agendaWeek,agendaDay,agenda'
+				right: 'month,agendaWeek'
 			},
 			defaultDate: "<?php date_default_timezone_set('UTC'); echo date('d/M/Y'); ?>",
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
 			selectable: true,
+			displayEventTime: true,
+			timeFormat: 'hh:mm a:',
 			selectHelper: true,
 			select: function(start, end) {
 				$('#ModalAdd #start').val(moment(start).format('YYYY-MM-DD HH:mm:ss'));
@@ -241,6 +243,23 @@
 						}
 					});
 				});
+			},
+			eventMouseover: function(calEvent, jsEvent) {
+			    var tooltip = '<div class="tooltipevent" style="width:100px;height:100px;background:#ccc;position:absolute;z-index:10001;">' + calEvent.title + '</div>';
+			    $("body").append(tooltip);
+			    $(this).mouseover(function(e) {
+			        $(this).css('z-index', 10000);
+			        $('.tooltipevent').fadeIn('500');
+			        $('.tooltipevent').fadeTo('10', 1.9);
+			    }).mousemove(function(e) {
+			        $('.tooltipevent').css('top', e.pageY + 10);
+			        $('.tooltipevent').css('left', e.pageX + 20);
+			    });
+			},
+			
+			eventMouseout: function(calEvent, jsEvent) {
+			     $(this).css('z-index', 8);
+			     $('.tooltipevent').remove();
 			},
 			eventDrop: function(event, delta, revertFunc) { // 
 				edit(event);

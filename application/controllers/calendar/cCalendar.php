@@ -20,7 +20,7 @@ class cCalendar extends CI_Controller {
                               	$("#cal").addClass("active");
                               });
                         </script>';
-		$data['event_data'] = $this->MCalendar->getAllApprovedEvents();
+		$data['event_data'] = $this->MCalendar->getAllEventsCreatedByRegularUser();
 		$this->load->helper('url');
 		$this->load->view('imports/vHeaderCalendarPage');
 		$this->load->view('calendar/vCalendar',$data);

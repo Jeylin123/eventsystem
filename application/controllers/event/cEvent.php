@@ -17,6 +17,12 @@ class cEvent extends CI_Controller {
 	{
 		
 	}
+	
+	//This function gets the date from the Calendar Module and sends in to the VCreateEvent.php
+	public function viewCreateFromCalendar(){
+		
+		
+	}
 
 	public function viewCreateEvent() 
 	{

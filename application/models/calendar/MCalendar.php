@@ -28,6 +28,14 @@
 			return $query;			             
 		}
 		
+		public function getAllEventsCreatedByRegularUser(){
+			$query = "SELECT * FROM event_info ei, user_account ua WHERE ei.user_id = ua.account_id AND ua.user_type = 'Regular'";
+			$db_result = $this->db->query($query);
+			$result_object = $db_result->result();
+			
+			return $result_object;
+		}
+		
 		public function insertNewEvent(){
 			
 		}
