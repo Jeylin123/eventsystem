@@ -117,13 +117,13 @@
                 <div class="ticketContainer">
                     <span>NUMBER OF TICKETS</span>
                     <div class="select-field">  
-                        <input type="text" required="" name="no_tickets_total1" placeholder="Ticket count"> 
+                        <input input type="number" min="0" required="" name="no_tickets_total1" placeholder="Ticket count"> 
                     </div>
                 </div>
                 <div class="ticketContainer">
                     <span>PRICE OF TICKET</span>
                     <div class="select-field">  
-                        <input type="text" required="" name="price_tickets_total1" placeholder="Ticket price"> 
+                        <input input type="number" min="0"required="" name="price_tickets_total1" placeholder="Ticket price"> 
                     </div>
                 </div>
             </div>
@@ -143,13 +143,13 @@
                 <div class="ticketContainer">
                     <span>NUMBER OF TICKETS</span>
                     <div class="select-field">  
-                        <input type="text" name="no_tickets_total2" placeholder="Ticket count"> 
+                        <input input type="number" min="0" name="no_tickets_total2" placeholder="Ticket count"> 
                     </div>
                 </div>
                 <div class="ticketContainer">
                     <span>PRICE OF TICKET</span>
                     <div class="select-field">  
-                        <input type="text" name="price_tickets_total2" placeholder="Ticket price"> 
+                        <input input type="number" min="0" name="price_tickets_total2" placeholder="Ticket price"> 
                     </div>
                 </div>
             </div>
@@ -169,13 +169,13 @@
                 <div class="ticketContainer">
                     <span>NUMBER OF TICKETS</span>
                     <div class="select-field">  
-                        <input type="text" name="no_tickets_total3" placeholder="Ticket count"> 
+                        <input input type="number" min="0" name="no_tickets_total3" placeholder="Ticket count"> 
                     </div>
                 </div>
                 <div class="ticketContainer">
                     <span>PRICE OF TICKET</span>
                     <div class="select-field">  
-                        <input type="text" name="price_tickets_total3" placeholder="Ticket price"> 
+                        <input input type="number" min="0" name="price_tickets_total3" placeholder="Ticket price"> 
                     </div>
                 </div>
             </div>
