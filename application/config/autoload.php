@@ -132,5 +132,5 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('mUserInfo','user/mUser','calendar/mCalendar','finance/mFinance','reports/mReports','security/mSecurity','user/mUser','mEventInfo','mRegisterEvent','mTicket','../core/MY_Model', 'user/MTicketType');
+$autoload['model'] = array('user/mUser','admin/mAdmin','calendar/mCalendar','finance/mFinance','reports/mReports','security/mSecurity','user/mUser','mEventInfo','mRegisterEvent','mTicket','../core/MY_Model');
 

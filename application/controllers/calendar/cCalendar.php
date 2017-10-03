@@ -22,9 +22,9 @@ class cCalendar extends CI_Controller {
                         </script>';
 		$data['event_data'] = $this->MCalendar->getAllApprovedEvents();
 		$this->load->helper('url');
-		$this->load->view('imports/vHeaderCalendarPage');
+		$this->load->view('imports/vHeader');
 		$this->load->view('calendar/vCalendar',$data);
-		$this->load->view('imports/vFooterCalendarPage',$this->data);
+		$this->load->view('imports/vFooter',$this->data);
 	}
 	
 	public function AddEvent()

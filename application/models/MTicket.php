@@ -1,10 +1,11 @@
 
 <?php
-	class MTicket extends MY_model {
+	class MTicket extends CI_model {
 		private $ticket_id;
-		private $date_sold;
-		private $user_id;
-		private $ticket_type_id;
+		private $price;
+		private $type;
+		private $event_id;
+		private $petition_id;
 
 
 		const DB_TABLE = "ticket";
@@ -13,50 +14,6 @@
     	public function __construct(){
 
 		}
-
-		public function Attendance($id)
-		{
-			$this->db->select("count(*), event_info.event_id as Event ID, event_info.event_name as Event Name ");
-			$this->db->from('ticket');
-			$this->db->join('ticket_type as tt', 'ticket.ticket_type_id = tt.ticket_type_id');
-			$this->db->join('event_info', 'tt.event_id = event_info.event_id');
-			$this->db->where('ticket.user_id', $id);
-
-			$query = $this->db->get();
-
-			return $query->result();
-			# code...
-		}
-
-		public function joinTicketEventType($id)
-		{
-			$this->db->select('*');
-			$this->db->from($this::DB_TABLE);
-			$this->db->join('ticket_type as tt', $this::DB_TABLE.'.ticket_type_id = tt.ticket_type_id');
-			$this->db->join('event_info as e', 'tt.event_id = e.event_id');
-			$this->db->where( array($this::DB_TABLE.'.user_id' => $id, ));
-
-			$query = $this->db->get();
-			 return $query->result();
-			# code...
-		}
-
-		public function generateRevenue($id)
-		{
-			$this->db->select('count(*) as TOTAL_TICKET_SOLD' );
-			$this->db->select_sum('price', 'REVENUE');
-			// $this->db->select_count('*','TOTAL_TICKE_SOLD' );
-			$this->db->from($this::DB_TABLE);
-			$this->db->join('ticket_type as tt', $this::DB_TABLE.'.ticket_type_id = tt.ticket_type_id');
-			$this->db->where( array('tt.event_id' => $id ));
-			$query = $this->db->get();
-
-			return $query->result();
-
-			# code...
-		}
-
-
 
 
 		public function getTicket_id(){

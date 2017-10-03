@@ -2,7 +2,6 @@
 	class MUser extends MY_model {
 		private $account_id;
 		private $user_name;
-		private $user_password;
 		private $first_name;
 		private $last_name;
 		private $middle_initial;
@@ -16,45 +15,6 @@
 
     	public function __construct(){
 
-		}
-
-		public function Attendance()
-		{	
-
-
-			$this->db->select("ei.event_name as event_id, user_account.user_name as name , count(*) as total");
-			$this->db->from('user_account ');
-			$this->db->join('ticket as t', 'user_account.account_id = t.user_id');
-			$this->db->join('ticket_type as tt', 'tt.ticket_type_id = t.ticket_type_id');
-			$this->db->join('event_info as ei', 'tt.event_id = ei.event_id');
-			$this->db->group_by('user_account.user_name');
-			$query = $this->db->get();
-
-			return $query->result();
-			# code...
-		}
-
-		public function attemptLogin(){
-				//$hashPass=hash('sha512',$this->agentPassword);
-
-			$query= $this->db->get_where($this::DB_TABLE,array('user_name'=>$this->user_name,'password'=>$this->user_password));
-			if($query -> num_rows() == 1){
-			    return $query->result();
-			}else{
-         		return false;
-            }
-		}
-
-		public function loadUserDetails($id)
-		{
-			$this->db->select('*');
-			$this->db->from($this::DB_TABLE);
-			$this->db->where('account_id', $id);
-
-			$query = $this->db->get();
-
-			return $query->result();
-			# code...
 		}
 
 		public function getAllUsers(){
@@ -78,14 +38,6 @@
 
 		public function setUser_name($user_name){
 			$this->user_name = $user_name;
-		}
-
-		public function setUser_password($user_password){
-			$this->user_password = $user_password;
-		}
-
-		public function getUser_password(){
-			return $this->user_password;
 		}
 
 		public function getFirst_name(){

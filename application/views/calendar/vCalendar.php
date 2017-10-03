@@ -23,6 +23,8 @@
 					<h4 class="modal-title" id="myModalLabel">Add Event</h4>
 				  </div>
 				  <div class="modal-body">
+				  	
+				  	
 					
 					  <div class="form-group">
 						<label for="title" class="col-sm-2 control-label">Title</label>
