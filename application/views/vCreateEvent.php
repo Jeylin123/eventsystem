@@ -38,7 +38,10 @@
     <form method="post" action="<?php echo site_url();?>/event/cEvent/createEvent ">
         <div class ="createYourEvent">
             <h1> CREATE YOUR EVENT! </h1> <br>
-            <h2> Share it. Make it live. </h2>
+            <h2> Share it. Make it live.</h2>
+            
+            
+			
         </div>
         
         <div class="eventHeader">
@@ -54,20 +57,20 @@
             <span>STARTS</span> <br>
             <div class="row container">
                 <div class="timeContainer">
-                    <input type="text" id="date1" name="event_date_start" placeholder="Date Start">
+                    <input type="text" id="date1" value="<?php echo (!empty($start_date))?$start_date:""; ?>" name="event_date_start" placeholder="Date Start">
                 </div>
                 <div class="timeContainer">
-                    <input type="text" id="time1" name="event_time_start" placeholder="Event starts">
+                    <input type="text" id="time1" value="<?php echo (!empty($start_time))?$start_time:"00:00"; ?>" name="event_time_start" placeholder="Event starts">
                 </div>
             </div>
             
             <span>ENDS</span> <br>
             <div class="row container">
                 <div class="timeContainer">
-                    <input type="text" id="date2" name="event_date_end" placeholder="Date End">
+                    <input type="text" id="date2" value="<?php echo (!empty($end_date))?$end_date:""; ?>"  event_date_end" placeholder="Date End">
                 </div>
                 <div class="timeContainer">
-                    <input type="text" id="time2" name="event_time_end" placeholder="Time Ends">
+                    <input type="text" id="time2" value="<?php echo (!empty($end_time))?$end_time:"00:00"; ?>" name="event_time_end" placeholder="Time Ends">
                 </div>
             </div>
             <span>CATEGORY </span> <br>

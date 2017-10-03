@@ -214,53 +214,36 @@
 			timeFormat: 'hh:mm a:',
 			selectHelper: true,
 			select: function(start, end) {
-				$('#ModalAdd #start').val(moment(start).format('YYYY-MM-DD HH:mm:ss'));
-				$('#ModalAdd #end').val(moment(end).format('YYYY-MM-DD HH:mm:ss'));
-				$('#ModalAdd').modal('show');
-			},
-			eventRender: function(event, element) {
-				element.bind('dblclick', function() {
-					// $('#ModalEdit #id').val(event.id);
-					// $('#ModalEdit #title').val(event.title);
-					// //$('#ModalEdit #color').val(event.color);
-					// $('#ModalEdit').modal('show');
-					var dataSet = 'id='+ event.id +'&title='+event.title;
+				// $('#ModalAdd #start').val(moment(start).format('YYYY-MM-DD HH:mm:ss'));
+				// $('#ModalAdd #end').val(moment(end).format('YYYY-MM-DD HH:mm:ss'));
+				// $('#ModalAdd').modal('show');
+					var startDate = moment(start).format('MM/DD/YYYY');
+					var endDate = moment(end).format('MM/DD/YYYY');
+					var startTime = moment(start).format('HH:mm');
+					var endTime = moment(end).format('HH:mm');
+					
+					var dataSet = "startDate="+startDate+"&startTime="+startTime+"&endDate="+endDate+"&endTime="+endTime;
 					$.ajax({
 						type: "POST",
-						url: '<?php echo site_url()?>/calendar/cCalendar/displayEventUpdate',
+						url: '<?php echo site_url()?>/event/cEvent/viewCreateFromCalendar',
 						data: dataSet,
 						cache: false,
 						success: function(result){
-							if(result!="error"){
-								$('#ModalEdit').html(result);
-								$('#ModalEdit').modal('show');
-							}else{
-								alert("Error");
-							}				
+							// if(result=="error"){
+								// $('#ModalEdit').html(result);
+								// $('#ModalEdit').modal('show');
+							// }else{
+								// alert("Error");
+							// }				
+							//alert(result);
+							$('body').html(result);
 						},
 						error: function(jqXHR, errorThrown){
 							console.log(errorThrown);
 						}
 					});
-				});
 			},
-			eventMouseover: function(calEvent, jsEvent) {
-			    var tooltip = '<div class="tooltipevent" style="width:100px;height:100px;background:#ccc;position:absolute;z-index:10001;">' + calEvent.title + '</div>';
-			    $("body").append(tooltip);
-			    $(this).mouseover(function(e) {
-			        $(this).css('z-index', 10000);
-			        $('.tooltipevent').fadeIn('500');
-			        $('.tooltipevent').fadeTo('10', 1.9);
-			    }).mousemove(function(e) {
-			        $('.tooltipevent').css('top', e.pageY + 10);
-			        $('.tooltipevent').css('left', e.pageX + 20);
-			    });
-			},
-			
-			eventMouseout: function(calEvent, jsEvent) {
-			     $(this).css('z-index', 8);
-			     $('.tooltipevent').remove();
-			},
+ 
 			eventDrop: function(event, delta, revertFunc) { // 
 				edit(event);
 			},
