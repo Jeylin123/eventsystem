@@ -5,8 +5,15 @@ class CInitialize extends CI_Controller {
 
 
 	public function index()
-	{
-		$this->load->helper('url');
-		$this->load->view('vLogin.php');
+	{	
+		if ($this->session->userdata('userSession')) {
+			redirect('cLogin/viewDashBoard');
+		} else {
+			$this->load->view('imports/vHeaderHomepage');
+			$this->load->view('vHomepage');
+			$this->load->view('imports/vFooterHomepage');
+			// $this->load->view('vLogin');
+			//redirect('cInitialize');
+		}
 	}
 }
